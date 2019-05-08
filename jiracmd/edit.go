@@ -7,7 +7,7 @@ import (
 	"github.com/coryb/oreo"
 	"gopkg.in/AlecAivazis/survey.v1"
 	"gopkg.in/Netflix-Skunkworks/go-jira.v1"
-	"gopkg.in/Netflix-Skunkworks/go-jira.v1/jiracli"
+	"github.com/albertrdixon/go-jira/jiracli"
 	"gopkg.in/Netflix-Skunkworks/go-jira.v1/jiradata"
 	kingpin "gopkg.in/alecthomas/kingpin.v2"
 )

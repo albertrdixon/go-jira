@@ -16,6 +16,7 @@ import (
 
 	yaml "gopkg.in/coryb/yaml.v2"
 
+	"github.com/Masterminds/sprig"
 	"github.com/coryb/figtree"
 	shellquote "github.com/kballard/go-shellquote"
 	"github.com/mgutz/ansi"
@@ -179,6 +180,11 @@ func TemplateProcessor() *template.Template {
 		"dateFormat": func(format string, content string) (string, error) {
 			return dateFormat(format, content)
 		},
+	}
+	for k, fn := range sprig.FuncMap() {
+		if _, ok := funcs[k]; !ok {
+			funcs[k] = fn
+		}
 	}
 	return template.New("gojira").Funcs(funcs)
 }
@@ -353,7 +359,7 @@ const defaultEditTemplate = `{{/* edit template */ -}}
 # issue: {{ .key }} - created: {{ .fields.created | age}} ago
 update:
   comment:
-    - add: 
+    - add:
         body: |~
           {{ or .overrides.comment "" | indent 10 }}
 fields:
@@ -483,7 +489,7 @@ const defaultTransitionTemplate = `{{/* transition template */ -}}
 {{- if .meta.fields.comment }}
 update:
   comment:
-    - add: 
+    - add:
         body: |~
           {{ or .overrides.comment "" | indent 10 }}
 {{- end -}}

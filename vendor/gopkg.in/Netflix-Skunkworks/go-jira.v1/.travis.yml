@@ -1,0 +1,19 @@
+sudo: true
+before_install:
+    - sudo apt-get update && sudo apt-get install -y pass gnupg
+
+language: go
+go_import_path: gopkg.in/Netflix-Skunkworks/go-jira.v1
+go:
+  - 1.9
+
+matrix:
+  fast_finish: true
+  
+script:
+  - go get -t -v ./...
+  - go test ./...
+  - go vet -composites=false ./...
+  - make
+  - make prove 2>&1
+  

@@ -10,7 +10,7 @@ import (
 	"golang.org/x/crypto/ssh/terminal"
 	survey "gopkg.in/AlecAivazis/survey.v1"
 	"gopkg.in/Netflix-Skunkworks/go-jira.v1"
-	"gopkg.in/Netflix-Skunkworks/go-jira.v1/jiracli"
+	"github.com/albertrdixon/go-jira/jiracli"
 	kingpin "gopkg.in/alecthomas/kingpin.v2"
 )
 

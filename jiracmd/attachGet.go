@@ -8,7 +8,7 @@ import (
 	"github.com/coryb/figtree"
 	"github.com/coryb/oreo"
 	jira "gopkg.in/Netflix-Skunkworks/go-jira.v1"
-	"gopkg.in/Netflix-Skunkworks/go-jira.v1/jiracli"
+	"github.com/albertrdixon/go-jira/jiracli"
 	kingpin "gopkg.in/alecthomas/kingpin.v2"
 )
 
